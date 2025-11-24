@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+ <header>
+        <nav class="navbar">
+        <div id="navdiv">
+            <div class="logo">
+                <img src="myimages/mylogo.jpg" >
+                <p>Basiliano</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                 <li><a href="Aboutpage.html">About</a></li>
+                  <li><a href="product.html">Products</a></li>
+                   <li><a href="contact.html">Contact</a></li>
+            </ul>
+                    <div class="right-section">
+                <div class="searchdiv">
+                    <input type="text" placeholder="Search...">
+                </div>
+
+              <div class="cart" onclick="window.location.href='cart.html'">
+    🛒 <span class="count">0</span>
+</div>
+
+
+                <button class="login-btn"><a href="Login.html">Login</a></button>
+                <button class="signup-btn"><a href="Signup.html">SignUp</a></button>
+            </div>      
+            
+        </div>
+    </nav>
+    </header>
+<h2 style="text-align:center; margin-top: 20px;">Product Details</h2>
+
+<div class="details-container">
+
+    <img id="productImage" src="">
+
+    <div class="details-info">
+        <h2 id="productName"></h2>
+        <p id="productPrice"></p>
+        <p id="productDescription"></p>
+
+       <button class="add-cart-btn" onclick="addToCart(currentProduct)">Add to Cart</button>
+
+
+        <br><br>
+        <a href="product.html">← Back to Products</a>
+    </div>
+
+</div>
+<script src="index.js"></script>
+<footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Aboutpage.html">About</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+             <p>📞 Phone:</b> +254 748341497</p>
+            <p>📧 Email:</b> support@basilianoelectronics.com</p>
+        </div>
+
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="#"><img src="myimages/facebook.avif" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="myimages/twitter.png" alt="Twitter" class="social-icon"></a>
+            <a href="#"><img src="myimages/instagram.jpeg" alt="Instagram" class="social-icon"></a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Basiliano Electronics. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

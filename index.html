@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div id="navdiv">
+            <div class="logo">
+                <img src="myimages/mylogo.jpg" >
+                <p>Basiliano</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                 <li><a href="Aboutpage.html">About</a></li>
+                  <li><a href="product.html">Products</a></li>
+                   <li><a href="contact.html">Contact</a></li>
+            </ul>
+                    <div class="right-section">
+                <div class="searchdiv">
+    <input type="text" id="navSearchInput" placeholder="Search product" onkeyup="applyNavbarSearch()">
+</div>
+
+
+               <div class="cart" onclick="window.location.href='cart.html'">
+    🛒 <span class="count">0</span>
+</div>
+
+
+                <button class="login-btn"><a href="Login.html">Login</a></button>
+                <button class="signup-btn"><a href="Signup.html">SignUp</a></button>
+            </div>      
+            
+        </div>
+    </nav>
+   
+    </header>
+    <div class="banner">
+        <h1>Welcome to Basiliano Electronics Shop</h1>
+     </div>
+     <section class="product-categories">
+    <h2>Product Categories</h2>
+    <div class="category-buttons">
+        <button onclick="filterCategory('all')">All</button>
+        <button onclick="filterCategory('tv')">TVs</button>
+        <button onclick="filterCategory('woofer')">Woofers</button>
+        <button onclick="filterCategory('phone')">Phones</button>
+        <button onclick="filterCategory('accessories')">Accessories</button>
+    </div>
+</section>
+
+       <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="products-container">
+
+        <div class="product-card" data-category="tv">
+            <img src="myimages/43inchtv.webp" alt="Product 1">
+            <h3>43Inch tv</h3>
+            <p>KSh 26,000</p>
+            <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        <div class="product-card" data-category="tv">
+            <img src="myimages/tv1.webp" alt="Product 2">
+            <h3>32Inch tv</h3>
+            <p>KSh 12,000</p>
+            <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        <div class="product-card" data-category="woofer">
+            <img src="myimages/woofer.png" alt="Product 3">
+            <h3>Taghood Woofer</h3>
+            <p>KSh 5,500</p>
+           <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        <div class="product-card" data-category="woofer">
+            <img src="myimages/woofer2.webp" alt="Product 4">
+            <h3>Alyoil woofer</h3>
+            <p>KSh 3,000</p>
+          <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        <div class="product-card" data-category="accessories">
+            <img src="myimages/watch.webp" alt="Product 5">
+            <h3>Smart Watch</h3>
+            <p>KSh 1,200</p>
+          <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+        <div class="product-card" data-category="accessories">
+            <img src="myimages/headphones.webp" alt="Product 6">
+            <h3>Headphones</h3>
+            <p>KSh 800</p>
+           <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+        <div class="product-card" data-category="phone">
+            <img src="myimages/iphonepic.webp" alt="Product 7">
+            <h3>iphone 17pro</h3>
+            <p>KSh 46,000</p>
+           <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+        <div class="product-card" data-category="phone">
+            <img src="myimages/samsungpic.webp" alt="Product 8">
+            <h3>Samsung S24</h3>
+            <p>KSh 24,000</p>
+            <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+        <div class="product-card" data-category="accessories">
+            <img src="myimages/kettlepic.webp" alt="Product 8">
+            <h3>Electric Kettle</h3>
+            <p>KSh 1,000</p>
+            <button class="buy-btn" onclick="buyNow(1)">Buy Now</button>
+        </div>
+
+    </div>
+</section>
+
+<script src="index.js"></script>
+<footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Aboutpage.html">About</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+             <p>📞 Phone:</b> +254 748341497</p>
+            <p>📧 Email:</b> support@basilianoelectronics.com</p>
+        </div>
+
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="#"><img src="myimages/facebook.avif" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="myimages/twitter.png" alt="Twitter" class="social-icon"></a>
+            <a href="#"><img src="myimages/instagram.jpeg" alt="Instagram" class="social-icon"></a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Basiliano Electronics. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
