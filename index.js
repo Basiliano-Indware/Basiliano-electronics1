@@ -7,7 +7,7 @@ function filterCategory(category) {
         if (category === "all" || product.dataset.category === category) {
             product.style.display = "block";
         } else {
-            product.style.display = "none";
+           // product.style.display = "none";
         }
     });
 }
@@ -430,4 +430,5 @@ function sendResetLink() {
         alert(`A reset link has been sent to ${email}`);
         document.getElementById('fpEmail').value = '';
     }
+
 }
