@@ -1047,6 +1047,7 @@ footer {
 /* ============================
    MOBILE NAV — 968px
 ============================ */
+/* MOBILE NAV — FIXED */
 @media (max-width: 968px) {
   .togglebtn {
     display: flex;
@@ -1055,7 +1056,7 @@ footer {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -100%; /* start hidden */
     width: 70%;
     height: 100vh;
     background: #0f2027;
@@ -1068,13 +1069,28 @@ footer {
   }
 
   .nav-links.open {
-    right: 0;
+    right: 0; /* visible when open */
   }
 
   .right-section {
-    display: none;
+    display: none; /* hide desktop nav */
+  }
+
+  /* Ensure nav links inside mobile are vertical and big enough */
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-links li a {
+    font-size: 22px;
+    color: #fff;
+  }
+
+  .nav-links li a:hover {
+    color: #ffd700;
   }
 }
+
 
 /* ============================
    SMALL SCREENS — 768px
@@ -1093,5 +1109,6 @@ footer {
     font-size: 18px;
   }
 }
+
 
 
