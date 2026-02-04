@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleBtn.addEventListener("click", () => {
       toggleBtn.classList.toggle("active");
       navLinks.classList.toggle("open");
-    });
+
 
     // Close menu when a link is clicked
     document.querySelectorAll(".nav-links a").forEach(link => {
@@ -451,6 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 
 
