@@ -430,4 +430,22 @@ function sendResetLink() {
         alert(`A reset link has been sent to ${email}`);
         document.getElementById('fpEmail').value = '';
     }
+    /*togglebtn*/
+    const toggleBtn = document.querySelector(".togglebtn");
+const navLinks = document.querySelector(".nav-links");
+
+toggleBtn.addEventListener("click", () => {
+  toggleBtn.classList.toggle("active");
+  navLinks.classList.toggle("open");
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    toggleBtn.classList.remove("active");
+  });
+});
+
+
 }
