@@ -9,41 +9,44 @@
 <body>
     <header>
     <nav class="navbar">
-        <div id="navdiv">
-            <div class="logo">
-                <img src="myimages/mylogo.jpg" >
-                <p>Basiliano</p>
-            </div>
-             <div class="togglebtn">
+  <div id="navdiv">
+    
+    <div class="logo">
+      <img src="myimages/mylogo.jpg">
+      <p>Basiliano</p>
+    </div>
+
+    <!-- HAMBURGER TOGGLE -->
+    <div class="togglebtn" id="togglebtn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                 <li><a href="Aboutpage.html">About</a></li>
-                  <li><a href="product.html">Products</a></li>
-                   <li><a href="contact.html">Contact</a></li>
-            </ul>
-                    <div class="right-section">
-                <div class="searchdiv">
-    <input type="text" id="navSearchInput" placeholder="Search product" onkeyup="applyNavbarSearch()">
-</div>
 
+    <!-- NAV LINKS -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Aboutpage.html">About</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-               <div class="cart" onclick="window.location.href='cart.html'">
-    🛒 <span class="count">0</span>
-</div>
+    <div class="right-section">
+      <div class="searchdiv">
+        <input type="text" id="navSearchInput" placeholder="Search product" onkeyup="applyNavbarSearch()">
+      </div>
 
+      <div class="cart" onclick="window.location.href='cart.html'">
+        🛒 <span class="count">0</span>
+      </div>
 
-                <button class="login-btn"><a href="Login.html">Login</a></button>
-                <button class="signup-btn"><a href="Signup.html">SignUp</a></button>
-            </div>      
-            
-        </div>
-    </nav>
-   
-    </header>
+      <button class="login-btn"><a href="Login.html">Login</a></button>
+      <button class="signup-btn"><a href="Signup.html">SignUp</a></button>
+    </div>
+
+  </div>
+</nav>
+</header>
     <div class="banner">
         <h1>Welcome to Basiliano Electronics Shop</h1>
      </div>
@@ -160,3 +163,4 @@
 </body>
 
 </html>
+
