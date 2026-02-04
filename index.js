@@ -430,6 +430,7 @@ function sendResetLink() {
         alert(`A reset link has been sent to ${email}`);
         document.getElementById('fpEmail').value = '';
     }
+    });
    const toggleBtn = document.getElementById("togglebtn");
 const navLinks = document.getElementById("nav-links");
 
@@ -444,5 +445,6 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     navLinks.classList.remove("open");
     toggleBtn.classList.remove("active");
   });
-});
+
+
 
