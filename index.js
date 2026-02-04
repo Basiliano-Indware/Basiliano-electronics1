@@ -431,20 +431,27 @@ function sendResetLink() {
         document.getElementById('fpEmail').value = '';
     }
     });
-   const toggleBtn = document.getElementById("togglebtn");
-const navLinks = document.getElementById("nav-links");
+   // ---------------- MOBILE NAV TOGGLE ----------------
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("togglebtn");
+  const navLinks = document.getElementById("nav-links");
 
-toggleBtn.addEventListener("click", () => {
-  toggleBtn.classList.toggle("active");
-  navLinks.classList.toggle("open");
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener("click", () => {
+      toggleBtn.classList.toggle("active");
+      navLinks.classList.toggle("open");
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        toggleBtn.classList.remove("active");
+      });
+    });
+  }
 });
 
-// Close menu when a link is clicked
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    toggleBtn.classList.remove("active");
-  });
 
 
 
