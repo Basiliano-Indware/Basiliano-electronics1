@@ -430,6 +430,7 @@ function sendResetLink() {
         alert(`A reset link has been sent to ${email}`);
         document.getElementById('fpEmail').value = '';
     }
+}
    // ---------------- MOBILE NAV TOGGLE ----------------
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("togglebtn");
@@ -450,6 +451,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 
 
