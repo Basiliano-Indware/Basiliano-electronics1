@@ -430,9 +430,8 @@ function sendResetLink() {
         alert(`A reset link has been sent to ${email}`);
         document.getElementById('fpEmail').value = '';
     }
-    /*togglebtn*/
-    const toggleBtn = document.querySelector(".togglebtn");
-const navLinks = document.querySelector(".nav-links");
+   const toggleBtn = document.getElementById("togglebtn");
+const navLinks = document.getElementById("nav-links");
 
 toggleBtn.addEventListener("click", () => {
   toggleBtn.classList.toggle("active");
@@ -447,5 +446,3 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
-
-}
