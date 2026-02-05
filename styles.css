@@ -1205,6 +1205,66 @@ footer {
     margin-left: 5px;
   }
 }
+/* =========================
+   FINAL MOBILE NAV UX FIX
+   (Client-ready)
+========================= */
+
+@media (max-width: 968px) {
+
+  /* NAV CONTAINER STRUCTURE */
+  .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* LOGO */
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 40px;
+    width: 40px;
+  }
+
+  /* SEARCH CENTER */
+  .right-section {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .right-section .searchdiv {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .right-section .searchdiv input {
+    width: 100%;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  /* CART */
+  .cart {
+    font-size: 22px;
+    margin-left: 5px;
+  }
+
+  /* TOGGLE BUTTON */
+  .togglebtn {
+    display: flex;
+    margin-left: 10px;
+  }
+
+}
+
+
 
 
 
