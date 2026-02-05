@@ -449,8 +449,9 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleBtn.classList.remove("active");
       });
     });
-  }
+  });
 });
+
 
 
 
