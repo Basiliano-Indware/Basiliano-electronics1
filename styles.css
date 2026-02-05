@@ -140,29 +140,30 @@ header {
   z-index: 1100;
 }
 
-.togglebtn span {
-  height: 3px;
-  width: 100%;
-  background: #ffd700;
-  border-radius: 4px;
-  transition: 0.3s ease;
-}
+  .togglebtn span {
+    background: #000;
+    height: 3px;
+  }
 
-.togglebtn.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.togglebtn.active span:nth-child(2) {
-  opacity: 0;
-}
-.togglebtn.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
+  .togglebtn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
 
+  .togglebtn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .togglebtn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 /* ===================== MOBILE NAV ===================== */
 @media (max-width: 968px) {
   .togglebtn {
-    display: flex;
-    position: relative;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
     z-index: 1100;
   }
 
@@ -170,17 +171,17 @@ header {
     display: none;
   }
 
-  .nav-links {
+   .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
+    width: 100%;
     height: 100vh;
-    width: 75%;
-    background: #0f2027;
+    background: #ffffff;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: 80px;
     transition: right 0.35s ease;
     z-index: 1000;
   }
@@ -188,15 +189,34 @@ header {
   .nav-links.open {
     right: 0;
   }
+}
+  .nav-links.open {
+    right: 0;
+  }
+
+ .nav-links li {
+    border-bottom: 1px solid #e6e6e6;
+  }
 
   .nav-links li a {
-    font-size: 22px;
+    color: #111;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 18px 22px;
+    display: block;
+    text-decoration: none;
+  }
+
+  .nav-links li a:hover {
+    background: #f7f7f7;
   }
 }
+  }
+
 .mobile-only {
   display: block;
 }
-
+}
 .right-section {
   display: none;
 }
@@ -1173,6 +1193,7 @@ footer {
     color: #fff;
   }
 }
+
 
 
 
