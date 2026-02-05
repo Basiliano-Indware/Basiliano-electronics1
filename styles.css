@@ -1075,25 +1075,27 @@ footer {
   font-weight: bold;
 }
 /* Ensure search bar always visible in header */
-.searchdiv {
-  display: flex;
-}
+/* SEARCH BAR: always visible */
+@media (max-width: 968px) {
+  .right-section {
+    display: flex !important; /* show on small screens */
+    gap: 10px;
+  }
 
-@media(max-width: 968px) {
-  .searchdiv {
-    display: flex; /* keep it visible */
+  .right-section .searchdiv {
     flex: 1;
   }
 
-  .searchdiv input {
-    width: 100%;
-    padding: 6px 12px;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    font-size: 14px;
+  .right-section button {
+    display: none; /* hide desktop login/signup buttons on mobile */
+  }
+
+  .nav-links li.mobile-only {
+    display: block; /* show login/signup/cart in menu for mobile */
   }
 }
+
+
 
 
 
