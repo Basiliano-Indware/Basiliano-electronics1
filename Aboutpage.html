@@ -9,35 +9,54 @@
 <body>
     <!-- HEADER -->
     <header>
-        <nav class="navbar">
-        <div id="navdiv">
-            <div class="logo">
-                <img src="myimages/mylogo.jpg" >
-                <p>Basiliano</p>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                 <li><a href="Aboutpage.html">About</a></li>
-                  <li><a href="product.html">Products</a></li>
-                   <li><a href="contact.html">Contact</a></li>
-            </ul>
-                    <div class="right-section">
-                <div class="searchdiv">
-                    <input type="text" placeholder="Search...">
-                </div>
+   <nav class="navbar">
+<div id="navdiv" class="nav-container">    
+    <div class="logo">
+      <img src="myimages/mylogo.jpg">
+      <p>Basiliano</p>
+    </div>
 
-               <div class="cart" onclick="window.location.href='cart.html'">
-    🛒 <span class="count">0</span>
-</div>
+    <!-- HAMBURGER TOGGLE -->
+    <div class="togglebtn" id="togglebtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
+    <!-- NAV LINKS -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Aboutpage.html">About</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
 
-                <button class="login-btn"><a href="Login.html">Login</a></button>
-                <button class="signup-btn"><a href="Signup.htmlS">SignUp</a></button>
-            </div>      
-            
-        </div>
-    </nav>
-    </header>
+    <!-- MOBILE ONLY -->
+<li class="mobile-only">
+  <a href="Login.html" class="mobile-btn">Login</a>
+</li>
+<li class="mobile-only">
+  <a href="Signup.html" class="mobile-btn">Sign Up</a>
+</li>
+    </ul>
+
+    <!-- DESKTOP RIGHT SECTION -->
+    <div class="right-section">
+      <div class="searchdiv">
+        <input type="text" id="navSearchInput" placeholder="Search product" onkeyup="applyNavbarSearch()">
+      </div>
+
+      <div class="cart" onclick="window.location.href='cart.html'">
+        🛒 <span class="count">0</span>
+      </div>
+
+      <button class="login-btn"><a href="Login.html">Login</a></button>
+      <button class="signup-btn"><a href="Signup.html">SignUp</a></button>
+    </div>
+
+  </div>
+</nav>
+
+</header>
 
     <!-- ABOUT SECTION -->
     <section class="about-page">
@@ -113,3 +132,4 @@
 
 </body>
 </html>
+
