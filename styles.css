@@ -167,6 +167,8 @@ header {
 @media (max-width: 968px) {
   .togglebtn {
     display: flex;
+    position: relative;
+    z-index: 1100;
   }
 
   .right-section {
@@ -202,6 +204,24 @@ header {
 
 .right-section {
   display: none;
+}
+/* ===== DESKTOP NAV LOCK ===== */
+@media (min-width: 969px) {
+  .right-section {
+    display: flex;
+  }
+
+  .nav-links {
+    position: static;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    background: transparent;
+  }
+
+  .togglebtn {
+    display: none;
+  }
 }
 
 
@@ -1154,6 +1174,7 @@ footer {
     color: #fff;
   }
 }
+
 
 
 
