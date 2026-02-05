@@ -24,13 +24,13 @@ header {
 .navbar {
   padding: 10px 20px;
 }
-
-#navdiv {
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
 }
+
 
 /* Logo */
 .logo {
@@ -1142,6 +1142,7 @@ footer {
     width: 85%; /* menu width for smaller screens */
   }
 }
+
 
 
 
