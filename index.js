@@ -339,21 +339,20 @@ function sendResetLink() {
 
 // ================= MOBILE NAV TOGGLE =================
 
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById("togglebtn");
-    const navLinks = document.getElementById("nav-links");
+const toggleBtn = document.getElementById("togglebtn");
+const navLinks = document.getElementById("nav-links");
 
-    if (toggleBtn && navLinks) {
-        toggleBtn.addEventListener("click", () => {
-            toggleBtn.classList.toggle("active");
-            navLinks.classList.toggle("open");
-        });
-
-        document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("open");
-                toggleBtn.classList.remove("active");
-            });
-        });
-    }
+toggleBtn.addEventListener("click", () => {
+  toggleBtn.classList.toggle("active");
+  navLinks.classList.toggle("open");
 });
+
+// Close menu when a link is clicked
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    toggleBtn.classList.remove("active");
+    navLinks.classList.remove("open");
+  });
+});
+
+
