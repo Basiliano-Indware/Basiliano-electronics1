@@ -338,16 +338,18 @@ function sendResetLink() {
 }
 
 // ================= MOBILE NAV TOGGLE =================
+// ================= MOBILE NAV TOGGLE =================
 const toggleBtn = document.querySelector(".togglebtn");
 const navLinks = document.querySelector(".nav-links");
 
 // Toggle open/close menu
-toggleBtn.addEventListener("click", () => {
+toggleBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // prevent outside click from immediately closing
   toggleBtn.classList.toggle("active"); // hamburger animation
   navLinks.classList.toggle("open");    // show/hide menu
 });
 
-// Close menu when a link is clicked (including mobile-only links)
+// Close menu when a link is clicked
 document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
     toggleBtn.classList.remove("active");
@@ -355,9 +357,9 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
-// Optional: close menu if clicked outside (nice UX)
+// Close menu if clicked outside nav
 document.addEventListener("click", (e) => {
-  if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target)) {
+  if (!navLinks.contains(e.target) && !toggleBtn.contains(e.target)) {
     toggleBtn.classList.remove("active");
     navLinks.classList.remove("open");
   }
