@@ -1074,16 +1074,26 @@ footer {
   font-size: 12px;
   font-weight: bold;
 }
-/* Ensure search bar always visible in header */
-/* SEARCH BAR: always visible */
+/* =========================
+   SEARCH BAR & CART FIX
+========================= */
+
+/* Small screens 968px */
 @media (max-width: 968px) {
   .right-section {
-    display: flex !important; /* show on small screens */
+    display: flex !important; /* always show search + cart */
     gap: 10px;
+    align-items: center;
+    flex: 1;
   }
 
   .right-section .searchdiv {
     flex: 1;
+  }
+
+  .right-section .cart {
+    display: flex !important; /* always show cart */
+    cursor: pointer;
   }
 
   .right-section button {
@@ -1091,9 +1101,34 @@ footer {
   }
 
   .nav-links li.mobile-only {
-    display: block; /* show login/signup/cart in menu for mobile */
+    display: block; /* show mobile-only links in toggle menu */
   }
 }
+
+/* Extra small screens 768px */
+@media (max-width: 768px) {
+  .right-section {
+    display: flex !important;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .right-section .searchdiv input {
+    width: 120px; /* shrink input to fit small screens */
+    font-size: 14px;
+  }
+
+  .right-section .cart {
+    font-size: 22px;
+  }
+
+  .nav-links {
+    width: 85%; /* menu width for smaller screens */
+  }
+}
+
+
 
 
 
