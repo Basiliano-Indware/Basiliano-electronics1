@@ -1073,7 +1073,22 @@ footer {
   border-radius: 50%;
   font-size: 12px;
   font-weight: bold;
+}  
+/*mobile*/
+@media (max-width: 968px) {
+  .nav-links {
+    right: -100%;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .nav-links.open {
+    right: 0;
+    visibility: visible;
+    pointer-events: auto;
+  }
 }
+
 /* =========================
    SEARCH BAR & CART FIX
 ========================= */
@@ -1127,6 +1142,7 @@ footer {
     width: 85%; /* menu width for smaller screens */
   }
 }
+
 
 
 
