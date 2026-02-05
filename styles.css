@@ -111,11 +111,6 @@ header {
   right: -8px;
   font-weight: bold;
 }
-/* Hide mobile-only items on desktop */
-.mobile-only {
-  display: none;
-}
-
 
 /* BUTTONS */
 .right-section button {
@@ -222,6 +217,10 @@ header {
   .togglebtn {
     display: none;
   }
+  /* Hide mobile-only items on desktop */
+.mobile-only {
+  display: none;
+}
 }
 
 
@@ -1174,6 +1173,7 @@ footer {
     color: #fff;
   }
 }
+
 
 
 
