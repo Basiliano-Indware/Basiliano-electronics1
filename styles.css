@@ -1074,6 +1074,28 @@ footer {
   font-size: 12px;
   font-weight: bold;
 }
+/* Ensure search bar always visible in header */
+.searchdiv {
+  display: flex;
+}
+
+@media(max-width: 968px) {
+  .searchdiv {
+    display: flex; /* keep it visible */
+    flex: 1;
+  }
+
+  .searchdiv input {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+}
+
+
 
 
 
