@@ -336,31 +336,47 @@ function sendResetLink() {
         document.getElementById("fpEmail").value = "";
     }
 }
+// ================= MOBILE NAV TOGGLE (FIXED & SAFE) =================
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector(".togglebtn");
+  const navLinks = document.querySelector(".nav-links");
 
-// ================= MOBILE NAV TOGGLE =================
-// ================= MOBILE NAV TOGGLE =================
-const toggleBtn = document.querySelector(".togglebtn");
-const navLinks = document.querySelector(".nav-links");
+  // Exit if navbar doesn't exist on this page
+  if (!toggleBtn || !navLinks) return;
 
-// Toggle open/close menu
-toggleBtn.addEventListener("click", (e) => {
-  e.stopPropagation(); // prevent outside click from immediately closing
-  toggleBtn.classList.toggle("active"); // hamburger animation
-  navLinks.classList.toggle("open");    // show/hide menu
-});
-
-// Close menu when a link is clicked
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    toggleBtn.classList.remove("active");
-    navLinks.classList.remove("open");
+  // Toggle menu
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleBtn.classList.toggle("active");
+    navLinks.classList.toggle("open");
   });
-});
 
-// Close menu if clicked outside nav
-document.addEventListener("click", (e) => {
-  if (!navLinks.contains(e.target) && !toggleBtn.contains(e.target)) {
-    toggleBtn.classList.remove("active");
-    navLinks.classList.remove("open");
-  }
+  // Close menu when clicking a link
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggleBtn.classList.remove("active");
+      navLinks.classList.remove("open");
+    });
+  });
+
+  // Close menu when clicking outside (mobile only)
+  document.addEventListener("click", (e) => {
+    if (
+      window.innerWidth <= 968 &&
+      navLinks.classList.contains("open") &&
+      !navLinks.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      toggleBtn.classList.remove("active");
+      navLinks.classList.remove("open");
+    }
+  });
+
+  // Reset menu on resize to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 968) {
+      toggleBtn.classList.remove("active");
+      navLinks.classList.remove("open");
+    }
+  });
 });
