@@ -1,5 +1,6 @@
+// ================= FILTER FUNCTIONS =================
 
-//index.html filter
+// index.html filter
 function filterCategory(category) {
     const products = document.querySelectorAll(".product-card");
 
@@ -11,14 +12,15 @@ function filterCategory(category) {
         }
     });
 }
-//navbar filter
+
+// navbar filter
 function applyNavbarSearch() {
     let searchInput = document.getElementById("navSearchInput").value.toLowerCase();
     let cards = document.querySelectorAll(".product-card");
 
     cards.forEach(card => {
         let name = card.querySelector("h3").innerText.toLowerCase();
-        if(name.includes(searchInput)) {
+        if (name.includes(searchInput)) {
             card.style.display = "";
         } else {
             card.style.display = "none";
@@ -26,10 +28,7 @@ function applyNavbarSearch() {
     });
 }
 
-
-
-//<!-- WORKING FILTER SYSTEM -->
-
+// Working filter system (search + category + price)
 function applyFilters() {
     let searchInput = document.getElementById("searchInput").value.toLowerCase();
     let category = document.getElementById("categoryFilter").value;
@@ -56,130 +55,41 @@ function applyFilters() {
         }
     });
 }
-// PRODUCT DATA
+
+// ================= PRODUCT DATA =================
+
 const products = [
-    {
-        id: 1,
-        name: "43 Inch TV",
-        price: 26000,
-        image: "myimages/43inchtv.webp",
-        description: "High-quality 43 inch Smart TV with crystal-clear display."
-    },
-    {
-        id: 2,
-        name: "32 Inch TV",
-        price: 12000,
-        image: "myimages/tv1.webp",
-        description: "Affordable 32 inch TV with HDMI and USB support."
-    },
-    {
-        id: 3,
-        name: "Taghood Woofer",
-        price: 5500,
-        image: "myimages/woofer.png",
-        description: "Powerful woofer for deep bass and clear sound."
-    },
-    {
-        id: 4,
-        name: "Alyoil woofer",
-        price: 1000,
-        image: "myimages/woofer2.webp",
-        description: "The Alyoil Woofer is a compact but powerful home audio system designed for deep bass and clear sound output. It features enhanced subwoofer drivers and balanced stereo speakers that deliver impressive performance in small and medium-sized rooms."
-    },
-    {
-        id: 5,
-        name: "Smart Watch",
-        price: 1200,
-        image: "myimages/watch.webp",
-        description: "A modern and stylish smartwatch built to keep you connected on the go. It features health-tracking functions such as heart-rate monitoring, sleep tracking, step counting, and notifications for calls, messages, and apps."
-    },
-    {
-        id: 6,
-        name: "Headphones",
-        price: 800,
-        image: "myimages/headphones.webp",
-        description: "Lightweight and comfortable headphones designed for everyday music listening, gaming, or online classes. They provide clear audio, good bass, and a noise-isolating ear-cup design that helps reduce background sounds."
-    },
-    {
-        id: 7,
-        name: "iphone 17pro",
-        price: 46000,
-        image: "myimages/iphonepic.webp",
-        description: "The iPhone 17 Pro delivers next-generation performance with its advanced A19 Bionic chip, stunning OLED display, and professional-grade camera system."
-    },
-    {
-        id: 8,
-        name: "Samsung S24",
-        price: 24000,
-        image: "myimages/samsungpic.webp",
-        description: "Samsung S24 brings flagship performance at great value. Featuring a bright AMOLED display, high-resolution camera, fast charging, and powerful processor, it is ideal for photography, social media, multitasking, and entertainment."
-    },
-    {
-        id: 9,
-        name: "Electric Kettle",
-        price: 1000,
-        image: "myimages/kettlepic.webp",
-        description: "A fast-boiling electric kettle designed for convenience and safety."
-    }
+    { id: 1, name: "43 Inch TV", price: 26000, image: "myimages/43inchtv.webp", description: "High-quality 43 inch Smart TV with crystal-clear display." },
+    { id: 2, name: "32 Inch TV", price: 12000, image: "myimages/tv1.webp", description: "Affordable 32 inch TV with HDMI and USB support." },
+    { id: 3, name: "Taghood Woofer", price: 5500, image: "myimages/woofer.png", description: "Powerful woofer for deep bass and clear sound." },
+    { id: 4, name: "Alyoil woofer", price: 1000, image: "myimages/woofer2.webp", description: "Compact but powerful home audio system." },
+    { id: 5, name: "Smart Watch", price: 1200, image: "myimages/watch.webp", description: "Modern smartwatch with health tracking features." },
+    { id: 6, name: "Headphones", price: 800, image: "myimages/headphones.webp", description: "Comfortable headphones with clear audio and good bass." },
+    { id: 7, name: "iPhone 17 Pro", price: 46000, image: "myimages/iphonepic.webp", description: "Next-gen iPhone with advanced performance and camera." },
+    { id: 8, name: "Samsung S24", price: 24000, image: "myimages/samsungpic.webp", description: "Flagship Samsung phone with great value and performance." },
+    { id: 9, name: "Electric Kettle", price: 1000, image: "myimages/kettlepic.webp", description: "Fast-boiling electric kettle for convenience." }
 ];
 
+// ================= PRODUCT PAGE DISPLAY =================
 
-
-
-// GET ID FROM URL
 let params = new URLSearchParams(window.location.search);
 let productId = params.get("id");
-
-// FIND PRODUCT
 let product = products.find(p => p.id == productId);
 
-// DISPLAY PRODUCT
 if (product) {
-    document.getElementById("productImage").src = product.image;
-    document.getElementById("productName").innerText = product.name;
-    document.getElementById("productPrice").innerText = "Price: KSh " + product.price;
-    document.getElementById("productDescription").innerText = product.description;
+    const img = document.getElementById("productImage");
+    const name = document.getElementById("productName");
+    const price = document.getElementById("productPrice");
+    const desc = document.getElementById("productDescription");
+
+    if (img) img.src = product.image;
+    if (name) name.innerText = product.name;
+    if (price) price.innerText = "Price: KSh " + product.price;
+    if (desc) desc.innerText = product.description;
 }
 
+// ================= CART FUNCTIONS =================
 
-// ADD TO CART
-function addToCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.push(product);
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    alert("Added to cart!");
-}
-let currentProduct = null;
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    let currentProduct = JSON.parse(localStorage.getItem("selectedProduct"));
-
-    if (currentProduct) {
-        const productImage = document.getElementById("productImage");
-        const productName = document.getElementById("productName");
-        const productPrice = document.getElementById("productPrice");
-        const productDescription = document.getElementById("productDescription");
-
-        if (productImage) productImage.src = currentProduct.image;
-        if (productName) productName.innerText = currentProduct.name;
-        if (productPrice) productPrice.innerText = "KSh " + currentProduct.price;
-        if (productDescription) productDescription.innerText = currentProduct.description || "";
-    } 
-    else {
-     //   alert("Product not found!");
-    }
-
-});
-
-
-
-// LOAD CART
-// ----------------- CART FUNCTIONS -----------------
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     document.querySelectorAll(".cart .count").forEach(span => span.innerText = cart.length);
@@ -189,11 +99,10 @@ function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount(); // Now this works because function is defined
+    updateCartCount();
     alert("Added to cart!");
 }
 
-// Remove item from cart
 function removeItem(index) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
@@ -201,16 +110,15 @@ function removeItem(index) {
     displayCart();
 }
 
-// Display cart items
 function displayCart() {
     const container = document.getElementById("cartContainer");
-    if(!container) return;
+    if (!container) return;
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     container.innerHTML = "";
     let total = 0;
 
-    cart.forEach((item,index)=>{
+    cart.forEach((item, index) => {
         total += item.price;
         container.innerHTML += `
             <div class="cart-item">
@@ -224,23 +132,27 @@ function displayCart() {
         `;
     });
 
-    document.getElementById("totalPrice").innerText = total;
+    const totalPrice = document.getElementById("totalPrice");
+    if (totalPrice) totalPrice.innerText = total;
+
     updateCartCount();
 }
-//signup
+
+// ================= AUTH =================
+
 function signupUser() {
     const username = document.getElementById("signupUsername").value;
     const email = document.getElementById("signupEmail").value;
     const password = document.getElementById("signupPassword").value;
 
-    if(!username || !email || !password){
+    if (!username || !email || !password) {
         alert("Please fill all fields");
         return;
     }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if(users.find(u => u.username === username)){
+    if (users.find(u => u.username === username)) {
         alert("Username already exists");
         return;
     }
@@ -249,8 +161,9 @@ function signupUser() {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Account created successfully!");
-    window.location.href = "Login.html"; // redirect to login
+    window.location.href = "Login.html";
 }
+
 function validateSignupForm() {
     const username = document.getElementById("signupUsername").value.trim();
     const email = document.getElementById("signupEmail").value.trim();
@@ -261,7 +174,6 @@ function validateSignupForm() {
         return false;
     }
 
-    // Basic email format check
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         alert("Please enter a valid email address.");
@@ -273,17 +185,15 @@ function validateSignupForm() {
         return false;
     }
 
-    // If all checks pass, proceed
-    signupUser(); 
+    signupUser();
     return true;
 }
 
-//login
 function loginUser() {
     const username = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
 
-    if(!username || !password){
+    if (!username || !password) {
         alert("Please enter both username and password");
         return;
     }
@@ -291,14 +201,15 @@ function loginUser() {
     let users = JSON.parse(localStorage.getItem("users")) || [];
     let user = users.find(u => u.username === username && u.password === password);
 
-    if(user){
+    if (user) {
         alert("Login successful!");
         localStorage.setItem("loggedInUser", username);
-        window.location.href = "index.html"; // redirect to homepage
+        window.location.href = "index.html";
     } else {
         alert("Invalid username or password");
     }
 }
+
 function validateLoginForm() {
     const username = document.getElementById("loginUsername").value.trim();
     const password = document.getElementById("loginPassword").value.trim();
@@ -308,12 +219,12 @@ function validateLoginForm() {
         return false;
     }
 
-    // Proceed if all checks pass
     loginUser();
     return true;
 }
 
-//contact
+// ================= CONTACT =================
+
 function sendMessage() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -327,7 +238,9 @@ function sendMessage() {
 
     alert("Message sent successfully! We will reply soon.");
 }
-//buy now
+
+// ================= BUY NOW / PAYMENT =================
+
 function buyNow(productId) {
     window.location.href = `payment.html?id=${productId}`;
 }
@@ -336,7 +249,6 @@ function buyNow(productId) {
 if (document.getElementById("pay-product-img")) {
     let params = new URLSearchParams(window.location.search);
     let payId = parseInt(params.get("id"));
-
     let selectedProduct = products.find(p => p.id === payId);
 
     if (selectedProduct) {
@@ -344,123 +256,104 @@ if (document.getElementById("pay-product-img")) {
         document.getElementById("pay-product-price").textContent = "KSh " + selectedProduct.price;
         document.getElementById("pay-product-img").src = selectedProduct.image;
     }
-}//
- // ---------------------------
-       //PAYMENT FORM VALIDATION
-   // ----------------------------*/
-    const paymentForm = document.getElementById("paymentForm");
+}
 
-    if (paymentForm) {
-        paymentForm.addEventListener("submit", function(e) {
-            e.preventDefault();
+// ================= PAYMENT FORM VALIDATION =================
 
-            const fullName = document.getElementById("fullName").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const cardNumber = document.getElementById("cardNumber").value.trim();
-            const expiryDate = document.getElementById("expiryDate").value;
-            const cvv = document.getElementById("cvv").value.trim();
+const paymentForm = document.getElementById("paymentForm");
 
-            if (!fullName || !phone || !address || !cardNumber || !expiryDate || !cvv) {
-                alert("Please fill in all fields.");
-                return;
-            }
+if (paymentForm) {
+    paymentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            if (!/^\d{10}$/.test(phone)) {
-                alert("Phone must be exactly 10 digits.");
-                return;
-            }
+        const fullName = document.getElementById("fullName").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const cardNumber = document.getElementById("cardNumber").value.trim();
+        const expiryDate = document.getElementById("expiryDate").value;
+        const cvv = document.getElementById("cvv").value.trim();
 
-            if (!/^\d{16}$/.test(cardNumber)) {
-                alert("Card number must be 16 digits.");
-                return;
-            }
+        if (!fullName || !phone || !address || !cardNumber || !expiryDate || !cvv) {
+            alert("Please fill in all fields.");
+            return;
+        }
 
-            if (!/^\d{3,4}$/.test(cvv)) {
-                alert("CVV must be 3 or 4 digits.");
-                return;
-            }
+        if (!/^\d{10}$/.test(phone)) {
+            alert("Phone must be exactly 10 digits.");
+            return;
+        }
 
-            paymentForm.submit();
-        });
-    }
+        if (!/^\d{16}$/.test(cardNumber)) {
+            alert("Card number must be 16 digits.");
+            return;
+        }
 
+        if (!/^\d{3,4}$/.test(cvv)) {
+            alert("CVV must be 3 or 4 digits.");
+            return;
+        }
 
+        paymentForm.submit();
+    });
+}
 
+// ================= FEEDBACK FORM =================
 
-// Feedback form submission
 const feedbackForm = document.getElementById("feedbackForm");
-if(feedbackForm){
-    feedbackForm.addEventListener("submit", function(e){
+if (feedbackForm) {
+    feedbackForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const name = document.getElementById("fbName").value;
         const rating = document.getElementById("fbRating").value;
         const comment = document.getElementById("fbComment").value;
 
-        const data = {
-            name: name,
-            rating: rating,
-            comment: comment
-        };
+        const data = { name, rating, comment };
 
-        // Replace YOUR_SHEETDB_URL with the URL from SheetDB
         fetch("https://sheetdb.io/api/v1/fw9xkh0rt2fha", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ data })
         })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("feedbackMessage").innerText = "Feedback submitted successfully!";
-            feedbackForm.reset();
-        })
-        .catch(error => {
-            document.getElementById("feedbackMessage").innerText = "Error submitting feedback, please try again.";
-            console.error(error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("feedbackMessage").innerText = "Feedback submitted successfully!";
+                feedbackForm.reset();
+            })
+            .catch(error => {
+                document.getElementById("feedbackMessage").innerText = "Error submitting feedback, please try again.";
+                console.error(error);
+            });
     });
 }
-//forgotpassword
+
+// ================= FORGOT PASSWORD =================
+
 function sendResetLink() {
-    const email = document.getElementById('fpEmail').value;
-    if(email) {
+    const email = document.getElementById("fpEmail").value;
+    if (email) {
         alert(`A reset link has been sent to ${email}`);
-        document.getElementById('fpEmail').value = '';
+        document.getElementById("fpEmail").value = "";
     }
 }
-   // ---------------- MOBILE NAV TOGGLE ----------------
+
+// ================= MOBILE NAV TOGGLE =================
+
 document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.getElementById("togglebtn");
-  const navLinks = document.getElementById("nav-links");
+    const toggleBtn = document.getElementById("togglebtn");
+    const navLinks = document.getElementById("nav-links");
 
-  if (toggleBtn && navLinks) {
-    toggleBtn.addEventListener("click", () => {
-      toggleBtn.classList.toggle("active");
-      navLinks.classList.toggle("open");
+    if (toggleBtn && navLinks) {
+        toggleBtn.addEventListener("click", () => {
+            toggleBtn.classList.toggle("active");
+            navLinks.classList.toggle("open");
+        });
 
-
-    // Close menu when a link is clicked
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        toggleBtn.classList.remove("active");
-      }
-                            }
-      });
-    });
-  });
-
-
-
-
-
-
-
-
-
-
-
-
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                toggleBtn.classList.remove("active");
+            });
+        });
+    }
+});
