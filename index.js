@@ -447,9 +447,12 @@ document.addEventListener("DOMContentLoaded", function () {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
         toggleBtn.classList.remove("active");
+      }
+                            }
       });
     });
   });
+
 
 
 
