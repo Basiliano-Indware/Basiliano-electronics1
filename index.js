@@ -339,12 +339,13 @@ function sendResetLink() {
 
 // ================= MOBILE NAV TOGGLE =================
 
-const toggleBtn = document.getElementById("togglebtn");
-const navLinks = document.getElementById("nav-links");
+const toggleBtn = document.querySelector(".togglebtn");
+const navLinks = document.querySelector(".nav-links");
 
+// Toggle open/close
 toggleBtn.addEventListener("click", () => {
-  toggleBtn.classList.toggle("active");
-  navLinks.classList.toggle("open");
+  toggleBtn.classList.toggle("active"); // animates X
+  navLinks.classList.toggle("open");    // shows/hides menu
 });
 
 // Close menu when a link is clicked
@@ -354,5 +355,3 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     navLinks.classList.remove("open");
   });
 });
-
-
