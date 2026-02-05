@@ -1,3 +1,8 @@
+body.menu-open {
+  overflow: hidden;
+}
+
+
 /* ===================== GLOBAL RESET ===================== */
 * {
   box-sizing: border-box;
@@ -140,11 +145,12 @@ button a {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  padding: 6px;
 }
 
 .togglebtn span {
   height: 3px;
-  width: 100%;
+  width: 24px;
   background: #ffd700;
   border-radius: 5px;
   transition: 0.3s ease;
@@ -937,6 +943,7 @@ footer {
   }
 
   .nav-links {
+    box-shadow: -8px 0 20px rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 0;
     right: -100%;
@@ -950,6 +957,12 @@ footer {
     transition: right 0.4s ease;
     z-index: 1000;
   }
+  .nav-links li {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: 0.3s ease;
+}
+
 
   .nav-links.open {
     right: 0;
@@ -967,6 +980,10 @@ footer {
   .nav-links li a:hover {
     color: #ffd700;
   }
+  .nav-links.open li {
+  opacity: 1;
+  transform: translateX(0);
+}
 
   .banner h1 {
     font-size: 28px;
@@ -1142,6 +1159,53 @@ footer {
     width: 85%; /* menu width for smaller screens */
   }
 }
+@media (max-width: 968px) {
+
+  .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* LOGO */
+  .logo {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 38px;
+    width: 38px;
+  }
+
+  /* SEARCH CENTERED */
+  .right-section {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .right-section .searchdiv input {
+    width: 100%;
+    max-width: 180px;
+    padding: 7px 12px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  /* CART */
+  .cart {
+    font-size: 22px;
+  }
+
+  /* TOGGLE BUTTON */
+  .togglebtn {
+    display: flex;
+    margin-left: 5px;
+  }
+}
+
 
 
 
