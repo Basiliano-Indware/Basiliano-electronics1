@@ -1016,3 +1016,45 @@ footer {
     align-items: center;
   }
 }
+/* ================= MOBILE NAV FIX ================= */
+
+/* Hide mobile-only items on desktop */
+.mobile-only {
+  display: none;
+}
+
+/* Mobile search input style */
+.mobile-search {
+  width: 80%;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+/* Mobile buttons */
+.mobile-btn {
+  background: #ffd700;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Show mobile items only on small screens */
+@media (max-width: 968px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .nav-links {
+    padding-top: 60px;
+  }
+
+  .nav-links li {
+    text-align: center;
+  }
+}
+
+
